@@ -18,8 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tme-XD-XCu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OzB-If-hCe"/>
+                                </connections>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="M0N-Ec-AXc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="761.5"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n7E-Al-pME">
                                     <size key="itemSize" width="74" height="84"/>
@@ -60,15 +67,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M0N-Ec-AXc" secondAttribute="trailing" id="7gC-Sy-nd9"/>
-                            <constraint firstItem="M0N-Ec-AXc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8nl-wv-MsO"/>
-                            <constraint firstItem="M0N-Ec-AXc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CMZ-6W-8ta"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="M0N-Ec-AXc" secondAttribute="bottom" id="ep4-KW-hMY"/>
+                            <constraint firstItem="M0N-Ec-AXc" firstAttribute="top" secondItem="tme-XD-XCu" secondAttribute="bottom" constant="12" id="6fu-3P-ZAI"/>
+                            <constraint firstItem="M0N-Ec-AXc" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.85" id="DLf-jX-eYr"/>
+                            <constraint firstItem="M0N-Ec-AXc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="QS6-9n-PaU"/>
+                            <constraint firstItem="M0N-Ec-AXc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="56" id="cSK-gb-0if"/>
+                            <constraint firstItem="M0N-Ec-AXc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oHF-Rl-YnR"/>
+                            <constraint firstItem="tme-XD-XCu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pw6-JO-rbx"/>
+                            <constraint firstItem="tme-XD-XCu" firstAttribute="trailing" secondItem="M0N-Ec-AXc" secondAttribute="trailing" id="wAM-oa-1Hp"/>
+                            <constraint firstItem="tme-XD-XCu" firstAttribute="leading" secondItem="M0N-Ec-AXc" secondAttribute="leading" id="x7z-bQ-xPa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="M0N-Ec-AXc" id="E2P-zQ-IfB"/>
+                        <outlet property="searchBar" destination="tme-XD-XCu" id="EfD-Rw-5om"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

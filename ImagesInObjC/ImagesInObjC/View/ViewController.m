@@ -12,9 +12,10 @@
 #import "MyCell.h"
 #import "ImageView.h"
 
-@interface ViewController () <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) CGSize collectionViewRowSize;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -28,14 +29,24 @@
 
 - (void)getData {
     NetworkService * network = [[NetworkService alloc] init];
-    [network getPhotos:^(NSMutableArray<Photo *> *photos) {
-       // Photo *photo = (Photo *) photos.firstObject;
+    [network getPhotos:apiUrl :^(NSMutableArray<Photo *> *photos) {
         self->_photosUrls = photos;
         dispatch_async(dispatch_get_main_queue(), ^{
              [self->_collectionView reloadData];
         });
     }];
 }
+
+- (void)getQueryData {
+    NetworkService * network = [[NetworkService alloc] init];
+    [network getQueryPhotos:self.searchBar.text :^(NSMutableArray<Photo *> *photos) {
+    self->_photosUrls = photos;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self->_collectionView reloadData];
+        });
+    }];
+}
+
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
@@ -53,6 +64,16 @@
     _collectionViewRowSize.width = _collectionViewRowSize.width/3.2;
     _collectionViewRowSize.height = _collectionViewRowSize.width;
     return _collectionViewRowSize;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    searchBar.showsCancelButton = true;
+    [self getQueryData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    searchBar.showsCancelButton = false;
+    [self getData];
 }
 
 @end

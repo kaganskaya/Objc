@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F538142522E1A459000D1B83 /* ImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F538142422E1A459000D1B83 /* ImageView.m */; };
+		F56F74A622E1DCED00185DE2 /* NewControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56F74A522E1DCED00185DE2 /* NewControllerSwift.swift */; };
 		F5FCB0AA22E08D97006BA0A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FCB0A922E08D97006BA0A3 /* AppDelegate.m */; };
 		F5FCB0AD22E08D97006BA0A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FCB0AC22E08D97006BA0A3 /* ViewController.m */; };
 		F5FCB0B022E08D97006BA0A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5FCB0AE22E08D97006BA0A3 /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		F538142422E1A459000D1B83 /* ImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageView.m; sourceTree = "<group>"; };
 		F538142622E1A46E000D1B83 /* ImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageView.h; sourceTree = "<group>"; };
+		F56F74A422E1DCED00185DE2 /* ImagesInObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImagesInObjC-Bridging-Header.h"; sourceTree = "<group>"; };
+		F56F74A522E1DCED00185DE2 /* NewControllerSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewControllerSwift.swift; sourceTree = "<group>"; };
 		F5FCB0A522E08D97006BA0A3 /* ImagesInObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagesInObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5FCB0A822E08D97006BA0A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5FCB0A922E08D97006BA0A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 			children = (
 				F5FCB0A722E08D97006BA0A3 /* ImagesInObjC */,
 				F5FCB0A622E08D97006BA0A3 /* Products */,
+				F56F74A422E1DCED00185DE2 /* ImagesInObjC-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +104,7 @@
 		F5FCB0C122E08DCB006BA0A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F56F74A522E1DCED00185DE2 /* NewControllerSwift.swift */,
 				F5FCB0CD22E0D91D006BA0A3 /* MyCell.h */,
 				F5FCB0CE22E0D91D006BA0A3 /* MyCell.m */,
 				F5FCB0AB22E08D97006BA0A3 /* ViewController.h */,
@@ -157,6 +162,7 @@
 				TargetAttributes = {
 					F5FCB0A422E08D97006BA0A3 = {
 						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -196,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F56F74A622E1DCED00185DE2 /* NewControllerSwift.swift in Sources */,
 				F5FCB0CC22E0AC3A006BA0A3 /* Photo.m in Sources */,
 				F5FCB0AD22E08D97006BA0A3 /* ViewController.m in Sources */,
 				F5FCB0B322E08D97006BA0A3 /* ImagesInObjC.xcdatamodeld in Sources */,
@@ -345,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ImagesInObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -353,6 +361,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = topDevs.ImagesInObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ImagesInObjC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -361,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ImagesInObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -369,6 +381,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = topDevs.ImagesInObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ImagesInObjC-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

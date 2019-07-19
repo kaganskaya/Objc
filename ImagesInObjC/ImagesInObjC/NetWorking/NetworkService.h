@@ -13,6 +13,7 @@
 #endif /* NetworkService_h */
 @interface NetworkService : NSObject  
 #define apiUrl @"https://api.unsplash.com/photos?page=1&per_page=30&client_id=4c9fbfbbd92c17a2e95081cec370b4511659666240eb4db9416c40c641ee843b"
-- (void)getPhotos:(void (^) (NSMutableArray<Photo*> *photos))block;
+- (void)getPhotos:(NSString *)url :(void (^) (NSMutableArray<Photo*> *photos))block;
+- (void)getQueryPhotos:(NSString *)query :(void (^) (NSMutableArray<Photo*> *photos))queryBlock;
 
 @end
