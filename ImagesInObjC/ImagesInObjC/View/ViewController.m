@@ -13,9 +13,7 @@
 #import "ImageView.h"
 
 @interface ViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UISearchBarDelegate>
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) CGSize collectionViewRowSize;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -30,17 +28,18 @@
 - (void)getData {
     NetworkService * network = [[NetworkService alloc] init];
     [network getPhotos:apiUrl :^(NSMutableArray<Photo *> *photos) {
-        self->_photosUrls = photos;
+        self.photosUrls = photos;
+
         dispatch_async(dispatch_get_main_queue(), ^{
              [self->_collectionView reloadData];
         });
     }];
 }
 
-- (void)getQueryData {
+- (void)getQueryData:(NSString *)query {
     NetworkService * network = [[NetworkService alloc] init];
-    [network getQueryPhotos:self.searchBar.text :^(NSMutableArray<Photo *> *photos) {
-    self->_photosUrls = photos;
+    [network getQueryPhotos:query:^(NSMutableArray<Photo *> *photos) {
+    self.photosUrls = photos;
         dispatch_async(dispatch_get_main_queue(), ^{
             [self->_collectionView reloadData];
         });
@@ -56,7 +55,7 @@
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self -> _photosUrls.count;
+    return self.photosUrls.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -68,7 +67,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     searchBar.showsCancelButton = true;
-    [self getQueryData];
+    [self getQueryData:self.searchBar.text];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{

@@ -10,6 +10,10 @@
 #import "Photo.h"
 @interface ViewController : UIViewController
 @property (nonatomic, strong) NSMutableArray<Photo *> *photosUrls;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic, nullable) IBOutlet UICollectionView *collectionView;
 
+- (void)getData;
+- (void)getQueryData:(NSString *)query;
 @end
 
